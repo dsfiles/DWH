@@ -1,0 +1,68 @@
+/*
+The SELECT statement is used to retrieve data from tables stored in SQL Server databases.
+The statement can be broken down into several parts called clauses. The FROM clause
+specifies the table where the data is stored. The SELECT clause contains a list of columns
+to be retrieved. To filter the data, use the WHERE clause. To sort the data, use the ORDER BY
+clause.
+*/
+
+-- use AdventureWorks2019 to test the following query exercises
+USE AdventureWorks2019;
+GO
+
+--1
+SELECT BusinessEntityID AS EmployeeID, 
+LoginID, JobTitle
+FROM HumanResources.Employee;
+
+--2
+SELECT CustomerID, SalesOrderID
+FROM Sales.SalesOrderHeader
+WHERE CustomerID = 12000;
+
+--3
+SELECT CustomerID, SalesOrderID, OrderDate
+FROM Sales.SalesOrderHeader
+WHERE OrderDate = '2012-01-01';
+
+--4
+SELECT BusinessEntityID, LoginID, JobTitle
+FROM HumanResources.Employee
+WHERE JobTitle = 'Design Engineer';
+
+--5
+SELECT CustomerID, SalesOrderID, OrderDate
+FROM Sales.SalesOrderHeader
+WHERE OrderDate > '2014-06-15'
+
+--6
+SELECT SalesOrderID, SalesOrderDetailID, OrderQty
+FROM Sales.SalesOrderDetail
+WHERE OrderQty >= 40;
+
+--7
+SELECT ProductID, StandardCost
+FROM [Production].[ProductCostHistory]
+WHERE StandardCost BETWEEN 10 and 15;
+
+--8
+SELECT CustomerID, SalesOrderID, OrderDate
+FROM Sales.SalesOrderHeader
+WHERE OrderDate BETWEEN '2012-07-04' AND '2012-07-05';
+
+--9
+SELECT TerritoryID, Name
+FROM Sales.SalesTerritory
+WHERE TerritoryID IN (1,3,5);
+
+--10
+SELECT MiddleName
+FROM Person.Person
+WHERE MiddleName IS NULL
+OR MiddleName = 'M';
+
+--11
+SELECT ProductID, LocationID
+FROM Production.ProductInventory
+ORDER BY ProductID, LocationID
+
