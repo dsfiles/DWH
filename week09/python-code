@@ -1,4 +1,17 @@
 ##### Exercise 1 #####
+age = int(input("Please enter your age:"))
+if age < 4:
+    admission = 0
+if (age >= 4 and age < 18):
+    admission = 25    
+if ( age >= 18 and age < 65):
+    admission = 40
+if age >= 65:
+    admission = 20    
+print(f"\nYou need to pay: ${admission}")
+
+
+##### Exercise 2 #####
 prompt = "\nPlease enter the name of a city you have visited:"
 prompt += "\n(Enter 'quit' when you are finished.) "
 while True:
@@ -9,7 +22,7 @@ while True:
         print(f"I'd love to go to {city.title()}!")
         
 
-##### Exercise 2 #####
+##### Exercise 3 #####
 # Taking kilometers input from the user
 kilometers = float(input("Enter value in kilometers: "))
 
@@ -21,7 +34,7 @@ miles = kilometers * conv_fac
 print('%0.2f kilometers is equal to %0.2f miles' %(kilometers, miles))
 
 
-##### Exercise ? #####
+##### Exercise 4 #####
 def get_formatted_name(first_name, last_name, middle_name=''):
     """Return a full name, neatly formatted."""
     if middle_name:
@@ -37,7 +50,7 @@ musician = get_formatted_name('john', 'hooker', 'lee')
 print(musician)
 
 
-##### Exercise 4 #####
+##### Exercise 5 #####
 import re
 states = [' Alabama ', 'Georgia!', 'Georgia', 'georgia', 'FlOrIda', 'south carolina##', 'West virginia?']
 
@@ -54,8 +67,7 @@ clean_result =  clean_strings(states)
 print(clean_result)
 
 
-
-##### Exercise 4 #####
+##### Exercise 6 #####
 # Program to multiply two matrices using nested loops
 # Refer to any Linear Algebra book to understand matrix multiplication
 
