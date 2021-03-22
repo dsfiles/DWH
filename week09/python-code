@@ -1,4 +1,4 @@
-##### Exercise 1 #####
+##### Exercise 1: if statement, user input #####
 age = int(input("Please enter your age:"))
 if age < 4:
     admission = 0
@@ -11,7 +11,7 @@ if age >= 65:
 print(f"\nYou need to pay: ${admission}")
 
 
-##### Exercise 2 #####
+##### Exercise 2: if-else, user input  #####
 prompt = "\nPlease enter the name of a city you have visited:"
 prompt += "\n(Enter 'quit' when you are finished.) "
 while True:
@@ -22,7 +22,7 @@ while True:
         print(f"I'd love to go to {city.title()}!")
         
 
-##### Exercise 3 #####
+##### Exercise 3: user input, simple math, output formatting #####
 # Taking kilometers input from the user
 kilometers = float(input("Enter value in kilometers: "))
 
@@ -34,7 +34,7 @@ miles = kilometers * conv_fac
 print('%0.2f kilometers is equal to %0.2f miles' %(kilometers, miles))
 
 
-##### Exercise 4 #####
+##### Exercise 4: function definition and invocation #####
 def get_formatted_name(first_name, last_name, middle_name=''):
     """Return a full name, neatly formatted."""
     if middle_name:
@@ -50,7 +50,7 @@ musician = get_formatted_name('john', 'hooker', 'lee')
 print(musician)
 
 
-##### Exercise 5 #####
+##### Exercise 5: Regular Expression for data cleansing #####
 import re
 states = [' Alabama ', 'Georgia!', 'Georgia', 'georgia', 'FlOrIda', 'south carolina##', 'West virginia?']
 
@@ -67,7 +67,8 @@ clean_result =  clean_strings(states)
 print(clean_result)
 
 
-##### Exercise 6 #####
+##### Exercise 6: matrix multiplicaiton #####
+# A matrix is often represented by a nested list in Python.
 # Program to multiply two matrices using nested loops
 # Refer to any Linear Algebra book to understand matrix multiplication
 
@@ -98,3 +99,41 @@ for i in range(len(A)):
 for row in C:
    print(row)
    
+
+##### Exercise 6: Numpy matrix vs. Python list #####
+import numpy as np
+# demo - create an numpy array of one million numbers
+# https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html
+my_arr = np.arange(1000000)
+# demo - create Python list of one million numbers
+my_list = list(range(1000000))
+# demo - count the totoal time of multiplying the one-millian Numpy array by 2 for 10 times  
+%time for _ in range(10): my_arr2 = my_arr * 2
+# demo - count the total time of multiplying the one-millian Python list by 2 for 10 times  
+%time for _ in range(10): my_list2 = [x * 2 for x in my_list]
+
+
+##### Exercise 6: Numpy matrix #####
+# Always import numpy before using it
+# Most people if not all use alias 'np' for numpy
+import numpy as np
+arr1 = np.array([1,2,3]) 
+print ("1-D array:\n", arr1)
+
+arr2 = np.array([[1, 2], [3, 4], [5, 6]]) 
+print ("2-D array: \n", arr2)
+print ("transpose:\n", arr2.T)
+
+arr3 = np.arange(32).reshape((8, 4))
+print("2-D array (8X4):\n", arr)
+
+
+##### Exercise 6: an interesting example just for fun! #####
+# https://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html
+import matplotlib.pyplot as plt
+x = np.arange(-5, 5, 0.1)
+y = np.arange(-5, 5, 0.1)
+xx, yy = np.meshgrid(x, y, sparse=True)
+z = np.sin(xx**2 + yy**2) / (xx**2 + yy**2)
+h = plt.contourf(x,y,z)
+plt.show()
