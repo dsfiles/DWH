@@ -1,4 +1,4 @@
-# Exercise #1
+##### Exercise 1 #####
 prompt = "\nPlease enter the name of a city you have visited:"
 prompt += "\n(Enter 'quit' when you are finished.) "
 while True:
@@ -8,3 +8,81 @@ while True:
     else:
         print(f"I'd love to go to {city.title()}!")
         
+
+##### Exercise 2 #####
+# Taking kilometers input from the user
+kilometers = float(input("Enter value in kilometers: "))
+
+# conversion factor
+conv_fac = 0.621371
+
+# calculate miles
+miles = kilometers * conv_fac
+print('%0.2f kilometers is equal to %0.2f miles' %(kilometers, miles))
+
+
+##### Exercise ? #####
+def get_formatted_name(first_name, last_name, middle_name=''):
+    """Return a full name, neatly formatted."""
+    if middle_name:
+        full_name = f"{first_name} {middle_name} {last_name}"
+    else:
+        full_name = f"{first_name} {last_name}"
+    return full_name.title()
+
+musician = get_formatted_name('jimi', 'hendrix')
+print(musician)
+
+musician = get_formatted_name('john', 'hooker', 'lee')
+print(musician)
+
+
+##### Exercise 4 #####
+import re
+states = [' Alabama ', 'Georgia!', 'Georgia', 'georgia', 'FlOrIda', 'south carolina##', 'West virginia?']
+
+def clean_strings(strings):
+    result = []
+    for value in strings:
+        value = value.strip()
+        value = re.sub('[!#?]', '', value)
+        value = value.title()
+        result.append(value)
+    return result
+
+clean_result =  clean_strings(states)
+print(clean_result)
+
+
+
+##### Exercise 4 #####
+# Program to multiply two matrices using nested loops
+# Refer to any Linear Algebra book to understand matrix multiplication
+
+# 3x3 matrix
+A = [[1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]]
+
+# 3x4 matrix
+B = [[5, 8, 6, 2],
+    [9, 7, 3, 0],
+    [4, 5, 2, 1]]
+
+# result is 3x4 matrix
+C = [[0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0]]
+
+# iterate through rows of A
+for i in range(len(A)):
+   # iterate through columns of B
+   for j in range(len(B[0])):
+       # iterate through rows of B
+       for k in range(len(B)):
+           C[i][j] += A[i][k] * B[k][j]
+
+# print out the content of matrix C
+for row in C:
+   print(row)
+   
