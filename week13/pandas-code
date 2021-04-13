@@ -1,2 +1,10 @@
-3. -2 incorrect
-4. -1 SalesOrderID repeated
+Covid-19 data sources:
+https://github.com/nytimes/covid-19-data
+https://github.com/CSSEGISandData/COVID-19
+https://ourworldindata.org/coronavirus-source-data
+https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distributi
+
+# read COVID-19 data directly into a Pandas dataframe 
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports_us/04-11-2021.csv")
+df.head()
