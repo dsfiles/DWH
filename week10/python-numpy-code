@@ -1,0 +1,139 @@
+##### Exercise 1: if statement, user input #####
+age = int(input("Please enter your age:"))
+if age < 4:
+    admission = 0
+if (age >= 4 and age < 18):
+    admission = 25    
+if ( age >= 18 and age < 65):
+    admission = 40
+if age >= 65:
+    admission = 20    
+print(f"\nYou need to pay: ${admission}")
+
+
+##### Exercise 2: if-else, user input  #####
+prompt = "\nPlease enter the name of a city you have visited:"
+prompt += "\n(Enter 'quit' when you are finished.) "
+while True:
+    city = input(prompt)
+    if city == 'quit':
+        break
+    else:
+        print(f"I'd love to go to {city.title()}!")
+        
+
+##### Exercise 3: user input, simple math, output formatting #####
+# Taking kilometers input from the user
+kilometers = float(input("Enter value in kilometers: "))
+
+# conversion factor
+conv_fac = 0.621371
+
+# calculate miles
+miles = kilometers * conv_fac
+print('%0.2f kilometers is equal to %0.2f miles' %(kilometers, miles))
+
+
+##### Exercise 4: function definition and invocation #####
+def get_formatted_name(first_name, last_name, middle_name=''):
+    """Return a full name, neatly formatted."""
+    if middle_name:
+        full_name = f"{first_name} {middle_name} {last_name}"
+    else:
+        full_name = f"{first_name} {last_name}"
+    return full_name.title()
+
+musician = get_formatted_name('jimi', 'hendrix')
+print(musician)
+
+musician = get_formatted_name('john', 'hooker', 'lee')
+print(musician)
+
+
+##### Exercise 5: Regular Expression for data cleansing #####
+import re
+states = [' Alabama ', 'Georgia!', 'Georgia', 'georgia', 'FlOrIda', 'south carolina##', 'West virginia?']
+
+def clean_strings(strings):
+    result = []
+    for value in strings:
+        value = value.strip()
+        value = re.sub('[!#?]', '', value)
+        value = value.title()
+        result.append(value)
+    return result
+
+clean_result =  clean_strings(states)
+print(clean_result)
+
+
+##### Exercise 6: matrix multiplicaiton #####
+# A matrix is often represented by a nested list in Python.
+# Program to multiply two matrices using nested loops
+# Refer to any Linear Algebra book to understand matrix multiplication
+
+# 3x3 matrix
+A = [[1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]]
+
+# 3x4 matrix
+B = [[5, 8, 6, 2],
+    [9, 7, 3, 0],
+    [4, 5, 2, 1]]
+
+# result is 3x4 matrix
+C = [[0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0]]
+
+# iterate through rows of A
+for i in range(len(A)):
+   # iterate through columns of B
+   for j in range(len(B[0])):
+       # iterate through rows of B
+       for k in range(len(B)):
+           C[i][j] += A[i][k] * B[k][j]
+
+# print out the content of matrix C
+for row in C:
+   print(row)
+   
+
+##### Exercise 7: Numpy matrix #####
+# Always import numpy before using it
+# Most people if not all use alias 'np' for numpy
+import numpy as np
+arr1 = np.array([1,2,3]) 
+print ("1-D array:\n", arr1)
+
+arr2 = np.array([[1, 2], [3, 4], [5, 6]]) 
+print ("2-D array: \n", arr2)
+print ("transpose:\n", arr2.T)
+
+arr3 = np.arange(32).reshape((8, 4))
+print("2-D array (8X4):\n", arr)
+
+
+##### Exercise 8: Numpy matrix vs. Python list #####
+import numpy as np
+# demo - create an numpy array of one million numbers
+# https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html
+my_arr = np.arange(1000000)
+# demo - create Python list of one million numbers
+my_list = list(range(1000000))
+# demo - count the totoal time of multiplying the one-millian Numpy array by 2 for 10 times  
+%time for _ in range(10): my_arr2 = my_arr * 2
+# demo - count the total time of multiplying the one-millian Python list by 2 for 10 times  
+%time for _ in range(10): my_list2 = [x * 2 for x in my_list]
+
+
+##### Exercise 9: an interesting example just for fun! #####
+# https://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html
+import matplotlib.pyplot as plt
+x = np.arange(-5, 5, 0.1)
+y = np.arange(-5, 5, 0.1)
+xx, yy = np.meshgrid(x, y, sparse=True)
+z = np.sin(xx**2 + yy**2) / (xx**2 + yy**2)
+h = plt.contourf(x,y,z)
+plt.show()
