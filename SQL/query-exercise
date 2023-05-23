@@ -6,8 +6,8 @@ to be retrieved. To filter the data, use the WHERE clause. To sort the data, use
 clause.
 */
 
--- use AdventureWorks2019 to test the following query exercises
-USE AdventureWorks2019;
+-- use AdventureWorks2022 to test the following query exercises
+USE AdventureWorks2022;
 GO
 
 --1
